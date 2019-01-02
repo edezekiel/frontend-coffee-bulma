@@ -30,13 +30,14 @@ function renderBlend(blend){
   <h3>${blend.name}</h3>
   <p>${blend.origin}</p>
   <p.${blend.variety}</p>
-  <p>Notes: ${blendNotes(div, blend)}</p>`
+  <p>Notes: ${blendNotes(blend)}</p>`
 }
 
-function blendNotes(div, blend) {
+function blendNotes(blend) {
+  allNotes = ""
   blend.notes.forEach(function(note) {
-    const blendNote = document.createElement('p')
-    blendNote.innerHTML = note.body
-    div.append(blendNote)
+    noteString = note.body.toString()
+    allNotes += noteString
   })
+  return allNotes
 }
