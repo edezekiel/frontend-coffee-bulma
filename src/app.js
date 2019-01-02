@@ -1,8 +1,7 @@
 // Read Blend and Note
 function showBlend(event){
-  const id = parseInt(event.target.dataset.blendId)
-  getBlend(id)
-  .then(blend => renderBlend(blend))
+  blendId = parseInt(event.target.dataset.blendId)
+  renderBlend(blendId)
 }
 
 // Create Note
@@ -14,5 +13,15 @@ function createNote(event){
   const blendId = parseInt(event.target.parentElement.parentElement.dataset.blendId)
   const note = {body: body, blend_id: blendId}
   postNote(note)
-  .then(note => renderNewBlend(blendId))
+  .then(note => renderBlend(blendId))
+}
+
+// Delete Note
+function deleteNote(event) {
+  const blendId = parseInt(event.target.parentNode.parentNode.parentNode.dataset.blendId)
+  const noteId = parseInt(event.target.parentNode.dataset.noteId)
+
+  deleteNoteRequest(noteId)
+  .then(note => renderRefresh(blendId))
+  // .then(renderBlendNotes(getBlend(blendId)))
 }
