@@ -30,4 +30,7 @@ function renderBlend(blend){
   <h2>${blend.name}</h2>
   <p>${blend.origin}</p>
   <p.${blend.variety}</p>`
+  blend.notes.forEach(function(note) {
+    console.log(note.body)
+  })
 }
