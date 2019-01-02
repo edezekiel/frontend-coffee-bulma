@@ -33,16 +33,14 @@ function displayEditForm(event) {
   renderEditForm(noteLi, noteString)
 }
 
-function editNote(event){
-  debugger
-  const editButton = event.target;
-  const noteString = event.target.previousElementSibling.innerHTML
+function editNote(event) {
   event.preventDefault()
-
+  const form = event.target;
   const body = form.querySelector('input[name="body"]').value;
-  const noteId = parseInt(form.parentNode.dataset.noteId)
-  const blendId = parseInt(event.target.parentNode.parentNode.parentNode.dataset.blendId)
+  // const noteString = event.target.previousElementSibling.innerHTML
+  const noteId = parseInt(event.target.parentNode.parentNode.dataset.noteId)
+  const blendId = parseInt(event.target.parentNode.parentNode.parentNode.parentNode.dataset.blendId)
   const note = {body: body, id: noteId}
-  // editNoteRequest(note)
-  // .then(note => renderBlend(blendId))
+  editNoteRequest(note)
+  .then(note => renderBlend(blendId))
 }

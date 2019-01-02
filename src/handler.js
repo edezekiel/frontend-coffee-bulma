@@ -20,4 +20,5 @@ function editNoteHandler(editButton) {
 
 function editFormHandler(editForm){
   editForm.addEventListener('submit', editNote)
+  return editForm
 }

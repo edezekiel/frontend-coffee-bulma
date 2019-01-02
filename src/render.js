@@ -83,8 +83,8 @@ function renderEditForm(noteLi, noteString) {
   const editForm = document.createElement('form')
   editForm.className = "edit-note"
   editForm.innerHTML = `
-    <input type="submit" value="Edit">
-    <input style="width: 100%;" type="text" name="body" value="${noteString}">`
+    <input style="width: 100%;" type="text" name="body" value="${noteString}">
+    <input type="submit" name="body" value="Submit">`
 
   noteLi.append(editFormHandler(editForm))
 }
