@@ -29,8 +29,14 @@ function renderBlend(blend){
   div.innerHTML = `
   <h3>${blend.name}</h3>
   <p>${blend.origin}</p>
-  <p.${blend.variety}</p>`
+  <p.${blend.variety}</p>
+  <p>Notes: ${blendNotes(div, blend)}</p>`
+}
+
+function blendNotes(div, blend) {
   blend.notes.forEach(function(note) {
-    console.log(note.body)
+    const blendNote = document.createElement('p')
+    blendNote.innerHTML = note.body
+    div.append(blendNote)
   })
 }
