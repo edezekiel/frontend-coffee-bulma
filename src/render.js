@@ -2,17 +2,15 @@ function renderTitles(){
   const panel = document.querySelector(".list-panel")
   const ul = document.createElement('ul')
   panel.appendChild(ul)
-  renderRefresh(ul)
   getBlends()
   .then( blends => blends.forEach(
     blend => renderBlendTitle(blend)
   ))
 }
 
-function renderRefresh(ul) {
-  ul.innerHTML = ""
-  const show = document.querySelector(".show-panel")
-  show.innerHTML = ""
+function renderNewBlend(blendId) {
+  getBlend(blendId)
+  .then(blend => renderBlend(blend))
 }
 
 function renderBlendTitle(blend) {
