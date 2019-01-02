@@ -28,8 +28,8 @@ function renderBlend(blend){
   div.dataset.blendId = blend.id
   div.innerHTML = `
   <h3>${blend.name}</h3>
-  <p>${blend.origin}</p>
-  <p.${blend.variety}</p>
+  <p>Origin: ${blend.origin}</p>
+  <p>Variety: ${blend.variety}</p>
   <p>Notes: ${blendNotes(blend)}</p>`
 }
 
