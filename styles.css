@@ -28,3 +28,8 @@ main {
   border-bottom: 2px solid #3d1009;
   border-left: 2px solid #3d1009;
 }
+
+li:hover {
+  color: #f6c174;
+  background-color: #3d1009;
+}
