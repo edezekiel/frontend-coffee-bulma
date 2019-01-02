@@ -24,20 +24,35 @@ function renderBlendTitle(blend) {
 }
 
 function renderBlend(blend){
-  const div = document.querySelector(".show-panel")
-  div.dataset.blendId = blend.id
-  div.innerHTML = `
+  const showDiv = document.querySelector(".show-panel")
+  showDiv.dataset.blendId = blend.id
+  showDiv.innerHTML = `
   <h3>${blend.name}</h3>
   <p>Origin: ${blend.origin}</p>
   <p>Variety: ${blend.variety}</p>
-  <p>Notes: ${blendNotes(blend)}</p>`
+  <p>Notes: <ul class="blend-notes"></ul></p>`
+  blendNotes(blend)
+  renderAddNoteForm(showDiv)
 }
 
 function blendNotes(blend) {
-  allNotes = ""
+  const ul = document.querySelector(".blend-notes")
   blend.notes.forEach(function(note) {
-    noteString = note.body.toString()
-    allNotes += noteString
+    const noteString = note.body.toString()
+    const li = document.createElement('li')
+    li.innerHTML = `${noteString}`
+    ul.appendChild(li)
   })
-  return allNotes
+  // return allNotes
+}
+
+function renderAddNoteForm(showDiv) {
+  const formDiv = document.createElement("div")
+  const form = document.createElement('form')
+  form.className = "note-form"
+  form.innerHTML = `
+    <input type="submit" value="Add Note">
+    <input type="text" name="body" value="">`
+  formDiv.append(createNoteHandler(form))
+  showDiv.append(formDiv)
 }

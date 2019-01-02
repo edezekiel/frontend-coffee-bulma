@@ -29,7 +29,7 @@ main {
   border-left: 2px solid #3d1009;
 }
 
-li:hover {
+.list-panel li:hover {
   color: #f6c174;
   background-color: #3d1009;
 }
