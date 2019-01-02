@@ -31,3 +31,16 @@ function deleteNoteRequest(id) {
   return fetch(`${NOTES_URL}/${id}`, options)
   .then(res => res.json())
 }
+
+
+function editNoteRequest(note) {
+  const options = {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(note)
+  }
+  return fetch(`${NOTES_URL}/${note.id}`, options)
+  .then(res => res.json())
+}

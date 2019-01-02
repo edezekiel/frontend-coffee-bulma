@@ -33,15 +33,18 @@ function renderShowDiv(blend){
   renderAddNoteForm(showDiv)
 }
 
-
 function renderBlendNotes(blend) {
   const ul = document.querySelector(".blend-notes")
   ul.innerHTML = ""
   blend.notes.forEach(function(note) {
     const noteString = note.body.toString()
     const li = document.createElement('li')
-    li.innerHTML = `${noteString}`
+    const noteStringDiv = document.createElement('div')
+    noteStringDiv.innerHTML = `${noteString}`
+    li.appendChild(noteStringDiv)
     li.dataset.noteId = note.id
+    renderEditButton(li)
+    // renderEditForm(li, noteString)
     renderDeleteButton(li)
     ul.appendChild(li)
   })
@@ -57,8 +60,8 @@ function renderAddNoteForm(showDiv) {
   const form = document.createElement('form')
   form.className = "note-form"
   form.innerHTML = `
-    <input type="submit" value="Add Note">
-    <input type="text" name="body" value="">`
+    <input type="test" name="body" value="">
+    <input type="submit" value="Add Note">`
   formDiv.append(createNoteHandler(form))
   showDiv.append(formDiv)
 }
@@ -67,4 +70,21 @@ function renderDeleteButton(li){
   const deleteButton = document.createElement('button')
   deleteButton.innerHTML = "Delete"
   li.appendChild(deleteNoteHandler(deleteButton))
+}
+
+function renderEditButton(li){
+  const editButton = document.createElement('button')
+  editButton.className = "edit-button"
+  editButton.innerHTML = "Edit"
+  li.appendChild(editNoteHandler(editButton))
+}
+
+function renderEditForm(noteLi, noteString) {
+  const editForm = document.createElement('form')
+  editForm.className = "edit-note"
+  editForm.innerHTML = `
+    <input type="submit" value="Edit">
+    <input style="width: 100%;" type="text" name="body" value="${noteString}">`
+
+  noteLi.append(editFormHandler(editForm))
 }

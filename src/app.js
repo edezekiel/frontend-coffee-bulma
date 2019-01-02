@@ -23,5 +23,26 @@ function deleteNote(event) {
 
   deleteNoteRequest(noteId)
   .then(note => renderRefresh(blendId))
-  // .then(renderBlendNotes(getBlend(blendId)))
+}
+
+// Update Note
+
+function displayEditForm(event) {
+  const noteLi = event.target.previousElementSibling
+  const noteString = event.target.previousElementSibling.innerHTML
+  renderEditForm(noteLi, noteString)
+}
+
+function editNote(event){
+  debugger
+  const editButton = event.target;
+  const noteString = event.target.previousElementSibling.innerHTML
+  event.preventDefault()
+
+  const body = form.querySelector('input[name="body"]').value;
+  const noteId = parseInt(form.parentNode.dataset.noteId)
+  const blendId = parseInt(event.target.parentNode.parentNode.parentNode.dataset.blendId)
+  const note = {body: body, id: noteId}
+  // editNoteRequest(note)
+  // .then(note => renderBlend(blendId))
 }
