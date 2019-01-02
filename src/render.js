@@ -27,7 +27,7 @@ function renderBlend(blend){
   const div = document.querySelector(".show-panel")
   div.dataset.blendId = blend.id
   div.innerHTML = `
-  <h2>${blend.name}</h2>
+  <h3>${blend.name}</h3>
   <p>${blend.origin}</p>
   <p.${blend.variety}</p>`
   blend.notes.forEach(function(note) {
