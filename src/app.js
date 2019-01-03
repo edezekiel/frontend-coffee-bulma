@@ -6,7 +6,9 @@ function showBlend(event){
 }
 
 // Create Note
-
+function createNote(event) {
+  
+}
 
 // Delete Note
 

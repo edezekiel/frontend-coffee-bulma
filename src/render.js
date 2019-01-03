@@ -37,6 +37,8 @@ function renderCardHTML(blend){
   return blendCard
 }
 
+// renderBlend is called by showBlend in the app.js file
+// showBlend is called by the showBlenderHandler
 function renderBlend(blendId){
   getBlend(blendId)
   .then(blend => renderBlendHTML(blend))
@@ -50,12 +52,24 @@ function renderBlendHTML(blend){
       <article class="tile is-child notification is-primary">
         <p class="title">${blend.name}</p>
         <p class="subtitle">${blend.origin}, ${blend.variety}</p>
-        <div class="content">
+        <div class="content blend-notes">
         <!--  -->
         </div>
       </article>
     </div>
     </div>
-
     `
+    renderBlendNotes(blend)
+}
+
+function renderBlendNotes(blend){
+  const blendNote = document.querySelector(".blend-notes")
+  blendNote.innerHTML = ""
+  blend.notes.forEach(function(note){
+    blendNote.innerHTML += `
+      <div class="blend-note">
+        ${note.body}
+      </div>
+    `
+  })
 }
