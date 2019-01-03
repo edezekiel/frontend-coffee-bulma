@@ -8,46 +8,68 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
 
-  <section class="hero is-success is-fullheight">
-    <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
-      <header class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-              Coffee Time
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
+          </a>
+
+          <a class="navbar-item">
+            Documentation
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
             </a>
-            <span class="navbar-burger burger" data-target="navbarMenuHeroC">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroC" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active">
-                Home
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
               </a>
               <a class="navbar-item">
-                Examples
+                Jobs
               </a>
               <a class="navbar-item">
-                Documentation
+                Contact
               </a>
-              <span class="navbar-item">
-                <a class="button is-success is-inverted">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </span>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
             </div>
           </div>
         </div>
-      </header>
-    </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  <section class="hero is-success is-fullheight">
 
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
@@ -190,87 +212,7 @@
             </footer>
           </div>
         </div>
-        <div class="column is-one-third">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </a>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Save</a>
-              <a href="#" class="card-footer-item">Edit</a>
-              <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </a>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Save</a>
-              <a href="#" class="card-footer-item">Edit</a>
-              <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
-                Component
-              </p>
-              <a href="#" class="card-header-icon" aria-label="more options">
-                <span class="icon">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </a>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
-            </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Save</a>
-              <a href="#" class="card-footer-item">Edit</a>
-              <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-          </div>
-        </div>
+
 
       </div>
 
