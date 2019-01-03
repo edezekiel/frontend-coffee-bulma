@@ -5,8 +5,6 @@ function renderCards(){
   ))
 }
 
-
-
 function renderCard(blend){
   const cardContainer = document.querySelector(".columns.is-multiline.is-mobile")
   cardContainer.append(renderCardHTML(blend))
@@ -36,4 +34,8 @@ function renderCardHTML(blend){
     </footer>
   </div>`
   return blendCard
+}
+
+function renderBlend(blendId){
+  console.log(blendId)
 }

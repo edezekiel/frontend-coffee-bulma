@@ -1,7 +1,8 @@
 // Read Blend and Note
 function showBlend(event){
-  // const blendId = parseInt(event.target.parentNode.parentNode.parentNode.dataset.blendId)
-  console.log(event.target)
+  event.preventDefault()
+  const blendId = parseInt(event.target.parentNode.parentNode.parentNode.dataset.blendId)
+  renderBlend(blendId)
 }
 
 // Create Note
