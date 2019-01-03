@@ -45,29 +45,17 @@ function renderBlend(blendId){
 function renderBlendHTML(blend){
   const cardContainer = document.querySelector(".columns.is-multiline.is-mobile")
   cardContainer.innerHTML = `
-  <div class="container">
-    <div class="columns">
-        <div class="column">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>${blend.name}</strong>
-                  </p>
-                  <p>
-                    Origin: ${blend.origin}
-                  </p>
-                  <p>
-                    Variety: ${blend.variety}
-                  </p>
-                </div>
-              </div>
-            </article>
-          </div>
+    <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-primary">
+        <p class="title">${blend.name}</p>
+        <p class="subtitle">${blend.origin}, ${blend.variety}</p>
+        <div class="content">
+        <!--  -->
         </div>
-      </div>
-    </div>`
+      </article>
+    </div>
+    </div>
+
+    `
 }
