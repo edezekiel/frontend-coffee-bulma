@@ -8,6 +8,7 @@ function showBlend(event){
 // Create Note
 function createNote(event) {
   
+  debugger
 }
 
 // Delete Note

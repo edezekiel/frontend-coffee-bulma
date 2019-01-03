@@ -3,9 +3,9 @@ function showBlendHandler(viewBlend){
   return viewBlend
 }
 
-function createNoteHandler(form){
-  form.addEventListener("submit", createNote)
-  return form
+function createNoteHandler(addNoteButton){
+  addNoteButton.addEventListener("click", createNote)
+  return addNoteButton
 }
 
 function deleteNoteHandler(deleteButton){

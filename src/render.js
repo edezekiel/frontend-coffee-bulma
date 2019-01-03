@@ -60,6 +60,7 @@ function renderBlendHTML(blend){
     </div>
     `
     renderBlendNotes(blend)
+    renderAddNoteForm()
 }
 
 function renderBlendNotes(blend){
@@ -72,4 +73,24 @@ function renderBlendNotes(blend){
       </div>
     `
   })
+  return blendNote
+}
+
+function renderAddNoteForm(){
+  blendNotes = document.querySelector(".blend-notes")
+  blendNotes.innerHTML += `
+    <div class="field">
+      <label class="label"></label>
+      <div class="control">
+        <textarea class="textarea" placeholder="this coffee is delicious ..."></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button class="button is-link">Add Note</button>
+      </div>
+    </div>
+  `
+  const addNoteButton = document.querySelector("button.button.is-link")
+  createNoteHandler(addNoteButton)
 }
