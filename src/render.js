@@ -1,3 +1,4 @@
+
 function renderCards(){
   getBlends()
   .then(blends => blends.forEach(
