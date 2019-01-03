@@ -49,7 +49,7 @@ function renderBlendHTML(blend){
   cardContainer.innerHTML = `
     <div class="tile is-ancestor">
     <div class="tile is-parent">
-      <article class="tile is-child notification is-primary">
+      <article class="tile is-child notification is-primary" data-blend-id="${blend.id}">
         <p class="title">${blend.name}</p>
         <p class="subtitle">${blend.origin}, ${blend.variety}</p>
         <div class="content blend-notes">

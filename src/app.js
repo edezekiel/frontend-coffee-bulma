@@ -7,8 +7,11 @@ function showBlend(event){
 
 // Create Note
 function createNote(event) {
-  
-  debugger
+  const body = document.querySelector(".textarea").value
+  const blendId = parseInt(document.querySelector(".tile.is-child.notification.is-primary").dataset.blendId)
+  const note = {body: body, blend_id: blendId }
+  postNote(note)
+  .then(note => renderBlend(blendId))
 }
 
 // Delete Note
