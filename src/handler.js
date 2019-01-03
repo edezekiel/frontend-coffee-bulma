@@ -1,3 +1,8 @@
+function logoHandler(){
+    const brandLogo = document.querySelector(".navbar.is-fixed-top .navbar-brand .navbar-item")
+    brandLogo.addEventListener('click', showBlends(event))
+}
+
 function createNoteHandler(form){
   form.addEventListener("submit", createNote)
   return form

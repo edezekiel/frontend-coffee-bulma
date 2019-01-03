@@ -4,6 +4,7 @@ const NOTES_URL = `${BASE_URL}/notes`
 
 document.addEventListener("DOMContentLoaded", initPage)
 
-function initPage(){
-  renderCards()
+function initPage(event){
+  logoHandler()
+  showBlends(event)
 }

@@ -37,5 +37,36 @@ function renderCardHTML(blend){
 }
 
 function renderBlend(blendId){
-  console.log(blendId)
+  getBlend(blendId)
+  .then(blend => renderBlendHTML(blend))
+}
+
+function renderBlendHTML(blend){
+  const cardContainer = document.querySelector(".columns.is-multiline.is-mobile")
+  cardContainer.innerHTML = `
+  <div class="container">
+    <div class="columns">
+        <div class="column">
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>${blend.name}</strong>
+                  </p>
+                  <p>
+                    Origin: ${blend.origin}
+                  </p>
+                  <p>
+                    Variety: ${blend.variety}
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>`
 }
