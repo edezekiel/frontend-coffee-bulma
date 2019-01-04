@@ -1,4 +1,3 @@
-const cardContainer = document.querySelector(".columns.is-multiline.is-mobile")
 
 function renderCards(){
   getBlends()
@@ -7,8 +6,8 @@ function renderCards(){
   ))
 }
 
-// blend cards on the initial page
 function renderCard(blend){
+  const cardContainer = document.querySelector(".columns.is-multiline.is-mobile")
   cardContainer.append(renderCardHTML(blend))
   const viewBlend = document.querySelector(`[data-blend-id="${blend.id}"] a`);
   showBlendHandler(viewBlend)
@@ -42,64 +41,70 @@ function renderCardHTML(blend){
 // showBlend is called by the showBlenderHandler
 function renderBlend(blendId){
   getBlend(blendId)
-  .then(blend => renderBlendPage(blend))
+  .then(blend => renderBlendHTML(blend))
 }
 
-function renderBlendPage(blend){
-  cardContainer.innerHTML = ""
-  cardContainer.appendChild(renderCardHTML(blend))
-  cardContainer.appendChild(renderAddNoteForm(blend))
-  renderNoteCards(blend)
-  const addNoteButton = document.querySelector(".add-note")
-  createNoteHandler(addNoteButton)
-}
-
-
-function renderNoteCards(blend){
-  blend.notes.forEach(note => cardContainer.append(renderNoteCard(blend, note)))
-}
-
-function renderNoteCard(blend, note) {
-  const noteCard = document.createElement("div")
-  noteCard.className = "column is-one-third"
-  noteCard.dataset.blendId = blend.id
-  noteCard.innerHTML = `
-    <div class="card">
-    <header class="card-header weigth-bold">
-      <p class="card-header-title is-centered">
-        Note
-      </p>
-    </header>
-      <div class="card-content">
-        <div class="content">
-          <p>${note.body}</p>
+function renderBlendHTML(blend){
+  const cardContainer = document.querySelector(".columns.is-multiline.is-mobile")
+  cardContainer.innerHTML = `
+    <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-primary" data-blend-id="${blend.id}">
+        <p class="title">${blend.name}</p>
+        <p class="subtitle">${blend.origin}, ${blend.variety}</p>
+        <div class="content blend-notes">
+        <!--  -->
         </div>
-      </div>
+      </article>
+    </div>
+    </div>
+    `
+    renderBlendNotes(blend)
+    renderAddNoteForm()
+}
 
+function renderBlendNotes(blend){
+  const blendNotes = document.querySelector(".blend-notes")
+  blendNotes.innerHTML = ""
+  blend.notes.forEach(function(note){
+    blendNotes.appendChild(renderBlendNote(note))
+  })
+  return blendNotes
+}
+
+function renderBlendNote(note){
+  const blendNote = document.createElement('div')
+  blendNote.innerHTML = `
+    ${note.body}`
+  renderNoteButtons(blendNote)
+  return blendNote
+}
+
+function renderNoteButtons(blendNote){
+  const noteButtons = document.createElement('div')
+  noteButtons.className = "buttons"
+  noteButtons.innerHTML = `
+    <span class="button is-info edit-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Edit</span>
+    <span class="button is-danger delete-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Delete</span>
+  `
+  return blendNote.appendChild(noteButtons)
+}
+
+function renderAddNoteForm(){
+  blendNotes = document.querySelector(".blend-notes")
+  blendNotes.innerHTML += `
+    <div class="field">
+      <label class="label"></label>
+      <div class="control">
+        <textarea class="textarea" rows="1" placeholder="this coffee is delicious ..."></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button class="button is-link is-small is-outlined is-primary is-inverted is-rounded is-hovered">Add Note</button>
+      </div>
     </div>
   `
-  return noteCard
-}
-
-
-function renderAddNoteForm(blend){
-  const addNoteForm = document.createElement("div")
-  addNoteForm.className = "column is-one-third"
-  addNoteForm.dataset.blendId = blend.id
-  addNoteForm.innerHTML = `
-  <div class="card">
-      <div class="field">
-        <label class="label"></label>
-        <div class="control">
-          <textarea class="textarea" rows="5" placeholder="this coffee is delicious ..."></textarea>
-        </div>
-      </div>
-      <div class="field">
-        <div class="control">
-          <button class="button add-note is-link is-outlined is-primary is-rounded">Add Note</button>
-        </div>
-      </div>
-  </div>
-  `
-  return addNoteForm
+  const addNoteButton = document.querySelector("button.button.is-link")
+  createNoteHandler(addNoteButton)
 }
