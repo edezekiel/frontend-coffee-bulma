@@ -52,10 +52,9 @@ function renderBlendHTML(blend){
       <article class="tile is-child notification is-primary" data-blend-id="${blend.id}">
         <p class="title">${blend.name}</p>
         <p class="subtitle">${blend.origin}, ${blend.variety}</p>
-        <p class="subtitle"> Notes: </p>
-          <div class="content blend-notes">
-          <!--  -->
-          </div>
+        <div class="content blend-notes">
+        <!--  -->
+        </div>
       </article>
     </div>
     </div>
@@ -76,18 +75,18 @@ function renderBlendNote(note){
   const blendNote = document.createElement('div')
   blendNote.innerHTML = `
     ${note.body}`
-  blendNote.appendChild(renderNoteButtons(note))
+  renderNoteButtons(blendNote)
   return blendNote
 }
 
-function renderNoteButtons(note){
+function renderNoteButtons(blendNote){
   const noteButtons = document.createElement('div')
   noteButtons.className = "buttons"
   noteButtons.innerHTML = `
-    <span class="button edit-note is-info is-small is-outlined is-primary is-inverted is-rounded is-hovered" data-note-id="${note.id}">Edit</span>
-    <span class="button delete-note is-danger is-small is-outlined is-primary is-inverted is-rounded is-hovered" data-note-id="${note.id}">Delete</span>
+    <span class="button is-info edit-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Edit</span>
+    <span class="button is-danger delete-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Delete</span>
   `
-  return noteButtons
+  return blendNote.appendChild(noteButtons)
 }
 
 function renderAddNoteForm(){

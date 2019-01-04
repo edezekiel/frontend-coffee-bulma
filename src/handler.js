@@ -13,10 +13,10 @@ function deleteNoteHandler(deleteButton){
   return deleteButton
 }
 
-function editNoteHandler(editButton) {
-  editButton.addEventListener('click', displayEditForm)
-  return editButton
-}
+// function editNoteHandler(editButton) {
+//   editButton.addEventListener('click', console.log)
+//   return editButton
+// }
 
 function editFormHandler(editForm){
   editForm.addEventListener('submit', editNote)

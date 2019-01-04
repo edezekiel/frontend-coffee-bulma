@@ -16,7 +16,7 @@ function createNote(event) {
 
 // Delete Note
 function deleteNote(event){
-  
+  console.log(event)
 }
 
 // Update Note
