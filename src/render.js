@@ -76,18 +76,18 @@ function renderBlendNote(note){
   const blendNote = document.createElement('div')
   blendNote.innerHTML = `
     ${note.body}`
-  renderNoteButtons(blendNote)
+  blendNote.appendChild(renderNoteButtons(note))
   return blendNote
 }
 
-function renderNoteButtons(blendNote){
+function renderNoteButtons(note){
   const noteButtons = document.createElement('div')
   noteButtons.className = "buttons"
   noteButtons.innerHTML = `
-    <span class="button is-info edit-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Edit</span>
-    <span class="button is-danger delete-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Delete</span>
+    <span class="button edit-note is-info is-small is-outlined is-primary is-inverted is-rounded is-hovered" data-note-id="${note.id}">Edit</span>
+    <span class="button delete-note is-danger is-small is-outlined is-primary is-inverted is-rounded is-hovered" data-note-id="${note.id}">Delete</span>
   `
-  return blendNote.appendChild(noteButtons)
+  return noteButtons
 }
 
 function renderAddNoteForm(){
