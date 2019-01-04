@@ -50,8 +50,8 @@ function renderBlendPage(blend){
   cardContainer.appendChild(renderCardHTML(blend))
   cardContainer.appendChild(renderAddNoteForm(blend))
   renderNoteCards(blend)
-  // const addNoteButton = document.querySelector(".add-note")
-  // createNoteHandler(addNoteButton)
+  const addNoteButton = document.querySelector(".add-note")
+  createNoteHandler(addNoteButton)
 }
 
 
@@ -65,11 +65,17 @@ function renderNoteCard(blend, note) {
   noteCard.dataset.blendId = blend.id
   noteCard.innerHTML = `
     <div class="card">
+    <header class="card-header weigth-bold">
+      <p class="card-header-title is-centered">
+        Note
+      </p>
+    </header>
       <div class="card-content">
         <div class="content">
           <p>${note.body}</p>
         </div>
       </div>
+
     </div>
   `
   return noteCard
