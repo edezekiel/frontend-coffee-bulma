@@ -23,3 +23,8 @@ function deleteNote(event){
 }
 
 // Update Note
+
+function displayEditForm(event){
+  console.log(event)
+  // renderEditForm(noteString)
+}

@@ -66,6 +66,11 @@ function renderBlendHTML(blend){
     deleteButtons.forEach(function(deleteButton){
       deleteNoteHandler(deleteButton)
     })
+
+    const editButtons = document.querySelectorAll(".edit-note")
+    editButtons.forEach(function(editButton){
+      editNoteHandler(editButton)
+    })
 }
 
 function renderBlendNotes(blend){
