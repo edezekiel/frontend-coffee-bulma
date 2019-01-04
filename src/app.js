@@ -25,6 +25,17 @@ function deleteNote(event){
 // Update Note
 
 function displayEditForm(event){
-  console.log(event)
-  // renderEditForm(noteString)
+  const noteId = parseInt(event.target.parentNode.parentNode.dataset.noteId)
+  getNote(noteId)
+  .then(note => renderEditForm(event, note))
+}
+
+function editNote(event){
+  event.preventDefault()
+  const body = document.querySelector('input[name="edit-form-input"]').value
+  const noteId = parseInt(event.target.parentNode.parentNode.parentNode.dataset.noteId)
+  const note = {body: body, id: noteId}
+  const blendId = parseInt(document.querySelector("article").dataset.blendId)
+  editNoteRequest(note)
+  .then(note => renderBlend(blendId))
 }

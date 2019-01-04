@@ -8,6 +8,11 @@ function getBlend(id){
   .then(res => res.json())
 }
 
+function getNote(id){
+  return fetch(`${NOTES_URL}/${id}`)
+  .then(res => res.json())
+}
+
 function postNote(note) {
   const options = {
     method: "POST",
@@ -42,5 +47,4 @@ function editNoteRequest(note) {
     body: JSON.stringify(note)
   }
   return fetch(`${NOTES_URL}/${note.id}`, options)
-  .then(res => res.json())
 }

@@ -119,3 +119,22 @@ function renderAddNoteForm(){
   const addNoteButton = document.querySelector("button.button.is-link")
   createNoteHandler(addNoteButton)
 }
+
+function renderEditForm(event, note){
+  const blendId = parseInt(event.target.parentNode.parentNode.parentNode.parentNode.dataset.blendId)
+  const noteDiv = event.target.parentNode.parentNode
+  noteDiv.innerHTML =
+    `<div class="field">
+      <label class="label"></label>
+      <div class="control">
+        <input class="textarea" name="edit-form-input" rows="1" placeholder="${note.body}"></input>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button class="button edit-button is-link is-small is-outlined is-primary is-inverted is-rounded is-hovered">Edit Note</button>
+      </div>
+    </div>`
+  const editFormButton = document.querySelector("button.edit-button")
+  editFormHandler(editFormButton)
+}
