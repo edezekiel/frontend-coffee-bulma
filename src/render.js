@@ -61,6 +61,11 @@ function renderBlendHTML(blend){
     `
     renderBlendNotes(blend)
     renderAddNoteForm()
+
+    const deleteButtons = document.querySelectorAll(".delete-note")
+    deleteButtons.forEach(function(deleteButton){
+      deleteNoteHandler(deleteButton)
+    })
 }
 
 function renderBlendNotes(blend){
@@ -74,6 +79,7 @@ function renderBlendNotes(blend){
 
 function renderBlendNote(note){
   const blendNote = document.createElement('div')
+  blendNote.dataset.noteId = note.id
   blendNote.innerHTML = `
     ${note.body}`
   renderNoteButtons(blendNote)

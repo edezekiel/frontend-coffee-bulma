@@ -18,7 +18,7 @@ function deleteNoteHandler(deleteButton){
 //   return editButton
 // }
 
-function editFormHandler(editForm){
-  editForm.addEventListener('submit', editNote)
-  return editForm
-}
+// function editFormHandler(editForm){
+//   editForm.addEventListener('submit', editNote)
+//   return editForm
+// }

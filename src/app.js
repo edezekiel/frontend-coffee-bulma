@@ -16,7 +16,10 @@ function createNote(event) {
 
 // Delete Note
 function deleteNote(event){
-  console.log(event)
+  const blendId = parseInt(event.target.parentNode.parentNode.parentNode.parentNode.dataset.blendId)
+  const noteId = parseInt(event.target.parentNode.parentNode.dataset.noteId)
+  deleteNoteRequest(noteId)
+  .then(note => renderBlend(blendId))
 }
 
 // Update Note
