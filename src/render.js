@@ -52,9 +52,10 @@ function renderBlendHTML(blend){
       <article class="tile is-child notification is-primary" data-blend-id="${blend.id}">
         <p class="title">${blend.name}</p>
         <p class="subtitle">${blend.origin}, ${blend.variety}</p>
-        <div class="content blend-notes">
-        <!--  -->
-        </div>
+        <p class="subtitle"> Notes: </p>
+          <div class="content blend-notes">
+          <!--  -->
+          </div>
       </article>
     </div>
     </div>
@@ -64,16 +65,29 @@ function renderBlendHTML(blend){
 }
 
 function renderBlendNotes(blend){
-  const blendNote = document.querySelector(".blend-notes")
-  blendNote.innerHTML = ""
+  const blendNotes = document.querySelector(".blend-notes")
   blend.notes.forEach(function(note){
-    blendNote.innerHTML += `
-      <div class="blend-note">
-        ${note.body}
-      </div>
-    `
+    blendNotes.appendChild(renderBlendNote(note))
   })
+  return blendNotes
+}
+
+function renderBlendNote(note){
+  const blendNote = document.createElement('div')
+  blendNote.innerHTML = `
+    ${note.body}`
+  renderNoteButtons(blendNote)
   return blendNote
+}
+
+function renderNoteButtons(blendNote){
+  const noteButtons = document.createElement('div')
+  noteButtons.className = "buttons"
+  noteButtons.innerHTML = `
+    <span class="button is-info edit-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Edit</span>
+    <span class="button is-danger delete-note is-small is-outlined is-primary is-inverted is-rounded is-hovered">Delete</span>
+  `
+  return blendNote.appendChild(noteButtons)
 }
 
 function renderAddNoteForm(){
@@ -82,12 +96,12 @@ function renderAddNoteForm(){
     <div class="field">
       <label class="label"></label>
       <div class="control">
-        <textarea class="textarea" placeholder="this coffee is delicious ..."></textarea>
+        <textarea class="textarea" rows="1" placeholder="this coffee is delicious ..."></textarea>
       </div>
     </div>
     <div class="field">
       <div class="control">
-        <button class="button is-link">Add Note</button>
+        <button class="button is-link is-small is-outlined is-primary is-inverted is-rounded is-hovered">Add Note</button>
       </div>
     </div>
   `
